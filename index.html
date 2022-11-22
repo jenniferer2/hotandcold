@@ -1,3 +1,5 @@
+<!-- Jennifer Lin, Webdev sec 85 even days, Level 1 Hot and Cold--> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,7 +106,14 @@
 
         function checker(z) {
             var d = Math.abs(user - ran);
-            if (d < 5) {
+            if (d === 0) {
+                console.log("You guessed it!");
+                confirmer = true;
+                document.getElementById("response").innerHTML = "Congrats! You guessed it!";
+                reset3();
+
+            }
+            else if (d < 5) {
                 console.log("Very Hot!");
                 document.getElementById("response").innerHTML = "Very Hot!";
 
@@ -137,13 +146,6 @@
             else if (d < 55) {
                 console.log("Cold!");
                 document.getElementById("response").innerHTML = "Cold!";
-
-            }
-            else if (d === 0) {
-                console.log("You guessed it!");
-                confirmer = true;
-                document.getElementById("response").innerHTML = "Congrats! You guessed it!";
-                reset3();
 
             }
             else {
