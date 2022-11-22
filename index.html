@@ -35,7 +35,7 @@
             user = 50;
             counter = 50;
             ran = Math.floor(Math.random() * 100) + 1;
-            document.getElementById("user").innerHTML = "Oh no! You lost!";
+            document.getElementById("user").innerHTML = "Oh no! You lost! Please click reset.";
             document.getElementById("response").innerHTML = "...";
             document.getElementById("count").innerHTML = "Number of guesses left: " + 5;
             document.getElementById("user2").innerHTML = ".";
@@ -50,7 +50,7 @@
             user = 50;
             counter = 5;
             ran = Math.floor(Math.random() * 100) + 1;
-            document.getElementById("user").innerHTML = "Nice win!";
+            document.getElementById("user").innerHTML = "Nice win! Please click reset.";
             document.getElementById("response").innerHTML = "...";
             document.getElementById("count").innerHTML = "Number of guesses left: " + 5;
             document.getElementById("user2").innerHTML = ".";
@@ -67,7 +67,7 @@
             console.log("Your guess is: " + user);
             checker();
             counter--;
-            if (counter == -1) {
+            if (counter < 0) {
                 console.log("You took 5 guesses and did not reach the mystery number.");
                 document.getElementById("count").innerHTML = "You took 5 guesses and did not reach the mystery number.";
                 reset2();
@@ -97,7 +97,6 @@
 
                 }
                 document.getElementById("count").innerHTML = "Number of guesses left: " + counter;
-
 
             }
 
