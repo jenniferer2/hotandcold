@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+
+    <script>
+
+var ran = Math.floor(Math.random() * 100) + 1; 
+
+var user = 50; 
+var counter = 5; 
+
+
+function reseter() {
+    ran = Math.floor(Math.random() * 100) + 1; 
+    counter = 5;
+    document.getElementById("user").innerHTML = "Your guess is: " + user; 
+    document.getElementById("response").innerHTML = "..."; 
+    document.getElementById("count").innerHTML = "Number of guesses left: " + counter;
+
+
+}
+function reset2() {
+    ran = Math.floor(Math.random() * 100) + 1; 
+    document.getElementById("user").innerHTML = "Oh no! You lost! Let's play again! Your number: 50"; 
+    document.getElementById("response").innerHTML = "..."; 
+    document.getElementById("count").innerHTML = "Number of guesses left: " + 5;
+  
+
+}
+function reset3() {
+    ran = Math.floor(Math.random() * 100) + 1; 
+    document.getElementById("user").innerHTML = "Nice win! Let's play again! Your number: 50"; 
+    document.getElementById("response").innerHTML = "..."; 
+    document.getElementById("count").innerHTML = "Number of guesses left: " + 5;
+ 
+}
+
+
+function committer (){
+    console.log("Your guess is: " + user); 
+    checker();
+    counter--;
+    if (counter == 0) {
+        console.log("You took 5 guesses and did not reach the mystery number.");
+        document.getElementById("count").innerHTML = "You took 5 guesses and did not reach the mystery number."; 
+        reset2();
+
+    }
+    else {
+        console.log("Number of guesses remaining: " + counter);  
+        document.getElementById("count").innerHTML = "Number of guesses left: " + counter;
+  
+ 
+    }
+   
+}
+
+function checker (z) {
+    var d = Math.abs(user -ran); 
+    if (d < 5 ) {
+        console.log ("Very Hot!");
+        document.getElementById("response").innerHTML = "Very Hot!"; 
+
+    }
+    else if (d < 8) {
+        console.log("Hot!"); 
+        document.getElementById("response").innerHTML = "Hot!"; 
+
+    }
+    else if (d < 15) {
+        console.log("Very warm!");
+        document.getElementById("response").innerHTML = "Very Warm!"; 
+
+    }
+    else if (d < 20) {
+        console.log("Warm!");
+        document.getElementById("response").innerHTML = "Warm!"; 
+
+    }
+    else if (d < 30) {
+        console.log("Cool!");
+        document.getElementById("response").innerHTML = "Cool!"; 
+
+    }
+    else if (d < 40) {
+        console.log("Very cool!");
+       document.getElementById("response").innerHTML = "Very Cool!"; 
+
+    }
+    else if (d < 55) {
+        console.log("Cold!");
+        document.getElementById("response").innerHTML = "Cold!"; 
+
+    }
+    else if (d === 0){
+        console.log("You guessed it!");
+        confirmer= true;
+        document.getElementById("response").innerHTML = "Congrats! You guessed it!"; 
+        reset3();
+
+    }
+    else {
+        console.log("Very cold!");
+        document.getElementById("response").innerHTML = "Very Cold!"; 
+
+    }
+
+}
+
+function subNum(y) {
+    user = user - y; 
+    if (user < 0) {
+        user = 0; 
+    }
+    document.getElementById("user").innerHTML ="Your number is: " + user; 
+}
+
+
+function addNum(x) {
+    user = user + x;
+    if (user > 100) {
+        user = 100; 
+    }
+    document.getElementById("user").innerHTML ="Your number is: " + user; 
+
+}
+
+    </script>
+</head>
+<body>
+
+<h1> Hot and Cold guessing game! </h1>
+
+
+    <button onclick = "reseter()">reset</button>
+    <button onclick = "addNum(1)">+1</button>
+    <button onclick = "addNum(5)">+5</button>
+    <button onclick = "addNum(10)">+10</button>
+    <button onclick = "addNum(25)">+25</button>
+    <button onclick = "subNum(1)">-1</button>
+    <button onclick = "subNum(5)">-5</button>
+    <button onclick = "subNum(10)">-10</button>
+    <button onclick = "subNum(25)">-25</button>
+    <button onclick = "committer()">commit</button>
+
+<p id = "user"> Your number: 50</p>
+<break></break>
+<p id ="response">...</p>
+<p id = "count">Number of guesses left: 5</p>
+
+    
+</body>
+</html>
